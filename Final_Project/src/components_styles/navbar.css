@@ -1,0 +1,81 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo img {
+    width: 10%;
+    height: auto;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: center; /* Center the links horizontally */
+    transform: translateX(-40%); /* Apply translation to the entire links section */
+}
+
+.navbar-links ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Space between links */
+    position: relative; /* Position relative to allow positioning of the oval */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #333;
+    position: relative; /* For positioning the pseudo-element */
+}
+
+.navbar-links a::before {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 115%; /* Make it wider to create an oval shape */
+    height: 140%; /* Make it taller to create an oval shape */
+    background-color: rgba(255, 61, 71, 0.2); /* Light opacity color */
+    border-radius: 30%; /* Make it oval */
+    transform: translate(-50%, -50%) scale(0); /* Start hidden */
+    transition: transform 0.3s ease; 
+    z-index: 0; 
+}
+
+.navbar-links a:hover::before {
+    transform: translate(-50%, -50%) scale(1); /* Scale to show on hover */
+}
+
+.navbar-links a:hover {
+    color: #ff5a5f; /* Airbnb-like hover color */
+    z-index: 1; /* Bring the text above the oval */
+}
+
+.navbar-search {
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-user-menu {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-user-menu button {
+    background-color: #ff5a5f;
+    color: white;
+    font-size: 0.97rem;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar-user-menu button:hover {
+    background-color: #ff3d47;
+}
