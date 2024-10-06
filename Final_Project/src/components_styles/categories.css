@@ -1,0 +1,86 @@
+.categories-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1.2rem 2.2rem;
+    overflow: hidden;
+  }
+  
+  .scroll-arrow {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+  
+  }
+  
+  .left {
+    left: 2%;
+  }
+  
+  .right {
+    right: 2%; 
+  }
+  
+  .categories-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    scroll-behavior: smooth;
+    padding-left: 50px;  
+    padding-right: 50px; 
+  }
+ /* Left Gradient Overlay */
+/* Left Gradient Overlay */
+.categories-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    /* width: 30px;  */
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 5%); /* Gradient for the left arrow */
+    z-index: 0; /* Ensure it's below the arrows */
+}
+
+/* Right Gradient Overlay */
+.categories-list::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* width: 30px;  */
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 5%); /* Gradient for the right arrow */
+    z-index: 0; /* Ensure it's below the arrows */
+}
+
+.categories-list::-webkit-scrollbar {
+    display: none; /* to hide scroll bar below the icons */
+}
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px; 
+    cursor: pointer;
+  }
+
+  .category-icon {
+    font-size: 2.5rem; /* Adjust the size of the icon */
+  }
+  
+  .category-name {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
