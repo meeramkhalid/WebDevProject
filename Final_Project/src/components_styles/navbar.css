@@ -14,8 +14,8 @@
 
 .navbar-links {
     display: flex;
-    justify-content: center; /* Center the links horizontally */
-    transform: translateX(-40%); /* Apply translation to the entire links section */
+    justify-content: center; 
+    transform: translateX(-40%); 
 }
 
 .navbar-links ul {
@@ -78,4 +78,71 @@
 
 .navbar-user-menu button:hover {
     background-color: #ff3d47;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar-logo img {
+        width: 12%; /* Slightly larger logo on smaller screens */
+    }
+
+    .navbar-links {
+        transform: translateX(-30%); /* Adjust translation */
+    }
+
+    .navbar-links ul {
+        gap: 1rem; /* Reduce space between links */
+    }
+
+    .navbar-links a {
+        font-size: 1.1rem; /* Slightly reduce font size */
+    }
+
+    .navbar-user-menu button {
+        padding: 0.7rem 1.5rem; /* Adjust button padding */
+        font-size: 0.85rem; /* Reduce button font size */
+    }
+}
+
+/* For mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack the navbar items */
+        align-items: flex-start; /* Align items to the left */
+        padding: 1rem;
+    }
+
+    .navbar-logo img {
+        width: 15%; /* Logo takes more space on smaller screens */
+    }
+
+    .navbar-links {
+        transform: translateX(0); /* Center links */
+        width: 100%;
+        justify-content: space-around; /* Space links evenly */
+    }
+
+    .navbar-links a {
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    .navbar-search {
+        flex-grow: 1;
+        width: 100%; /* Make the search bar full-width */
+        margin-top: 1rem; /* Add some space on top */
+        order: 2; /* Move search bar below links */
+    }
+
+    .navbar-user-menu {
+        margin-top: 1rem; /* Add margin for better spacing */
+        order: 3; /* Move user menu below links and search bar */
+    }
+
+    .navbar-user-menu button {
+        padding: 0.7rem 1.2rem; /* Smaller buttons */
+        font-size: 0.85rem;
+    }
 }
