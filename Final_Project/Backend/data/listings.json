@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      "id": "1",
       "image": "hotel1.jfif",
       "title": "Cozy Apartment in the City Center",
       "propertyType": "Entire home",
@@ -8,10 +8,11 @@
       "bedrooms": 2,
       "bathrooms": 1,
       "price": 120,
-      "rating": 4.5
+      "rating": 4.5,
+      "location":"New York"
     },
     {
-      "id": 2,
+      "id": "2",
       "image": "parishotel.jpg",
       "title": "Modern Loft with City Views",
       "propertyType": "Entire apartment",
@@ -19,10 +20,11 @@
       "bedrooms": 1,
       "bathrooms": 1,
       "price": 150,
-      "rating": 4.8
+      "rating": 4.8,
+      "location":"Paris"
     },
     {
-      "id": 3,
+      "id": "3",
       "image": "hotel1_mountainView.jpg",
       "title": "Mountain View Retreat",
       "propertyType": "Entire home",
@@ -30,10 +32,12 @@
       "bedrooms": 2,
       "bathrooms": 1,
       "price": 120,
-      "rating": 4.5
+      "rating": 4.5,
+      "location":"Los Angeles"
+
     },
     {
-      "id": 4,
+      "id": "4",
       "image": "hotel3.jpg",
       "title": "Urban Oasis",
       "propertyType": "Entire apartment",
@@ -41,7 +45,9 @@
       "bedrooms": 1,
       "bathrooms": 1,
       "price": 150,
-      "rating": 4.8
+      "rating": 4.8,
+      "location":"Miami"
+
     }
   ]
   

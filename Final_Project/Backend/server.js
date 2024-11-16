@@ -6,7 +6,7 @@ const bookingsRoute = require('./routes/bookings');
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: 'http://localhost:5173', // Frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow necessary HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
 }));
@@ -20,7 +20,6 @@ app.use(express.json());
 // Routes
 app.use('/api/listings', listingsRoute);
 app.use('/api/bookings', bookingsRoute);
-
 
 // Start Server
 const PORT = process.env.PORT || 5000;
