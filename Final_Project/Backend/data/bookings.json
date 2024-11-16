@@ -1,9 +1,16 @@
 [
-    {
-      "id": "1",
-      "listingId": 1,
-      "user": "John Doe",
-      "date": "2024-11-01"
-    }
-  ]
-  
+  {
+    "id": "1",
+    "guestName": "John Doe",
+    "checkIn": "2024-11-01",
+    "checkOut": "2024-11-10",
+    "guests": 3
+  },
+  {
+    "id": "2",
+    "guestName": "Alice Johnson",
+    "checkIn": "2024-11-25",
+    "checkOut": "2024-11-30",
+    "guests": 3
+  }
+]
