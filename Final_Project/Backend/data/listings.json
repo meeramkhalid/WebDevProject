@@ -1,0 +1,47 @@
+[
+    {
+      "id": 1,
+      "image": "hotel1.jfif",
+      "title": "Cozy Apartment in the City Center",
+      "propertyType": "Entire home",
+      "guests": 4,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 120,
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "image": "parishotel.jpg",
+      "title": "Modern Loft with City Views",
+      "propertyType": "Entire apartment",
+      "guests": 2,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "price": 150,
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "image": "hotel1_mountainView.jpg",
+      "title": "Mountain View Retreat",
+      "propertyType": "Entire home",
+      "guests": 4,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 120,
+      "rating": 4.5
+    },
+    {
+      "id": 4,
+      "image": "hotel3.jpg",
+      "title": "Urban Oasis",
+      "propertyType": "Entire apartment",
+      "guests": 2,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "price": 150,
+      "rating": 4.8
+    }
+  ]
+  
