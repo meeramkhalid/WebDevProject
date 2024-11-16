@@ -1,22 +1,21 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
-import Navbar from './components/navbar'; 
-import Categories from './components/Categories'; 
-import Home from './components/home'
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router and Routes from 'react-router-dom'
+import Home from './components/home';
+import ListingDetailsPage from './pages/ListingDetailsPage';  
+import BookingPage from './pages/BookingPage';  
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      {/* Render Navbar at the top */}
-      <Home/>
-
-
-      
-    </>
+    <Router>      
+      {/* Define routes for each page */}
+      <Routes>
+        <Route path="/" element={<Home />} /> {/* Default route (home page) */}
+        <Route path="/listing/:id" element={<ListingDetailsPage />} /> {/* Listing details page */}
+        <Route path="/booking/:id" element={<BookingPage />} /> {/* Booking page */}
+      </Routes>
+    </Router>
   );
 }
 
