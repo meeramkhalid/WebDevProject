@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import listings from '../Backend/data/bookings.json';  
+import '../Pages_Styles/Bookings.css';
 
 const BookingPage = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [listing, setListing] = useState(null);
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState(1);
   const [isFormValid, setIsFormValid] = useState(true);
+  const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(false); // New state
 
   const redirectToHome = () => {
-    navigate(`/`); // Navigate to the home page
+    navigate(`/`);
   };
 
   useEffect(() => {
@@ -24,9 +26,11 @@ const BookingPage = () => {
     e.preventDefault();
     if (!checkIn || !checkOut || guests < 1) {
       setIsFormValid(false);
+      setIsSubmissionSuccess(false); // Reset success state
       return;
     }
     setIsFormValid(true);
+    setIsSubmissionSuccess(true); // Set success state
   };
 
   if (!listing) {
@@ -52,6 +56,7 @@ const BookingPage = () => {
         <button type="submit">Confirm Booking</button>
       </form>
       {!isFormValid && <p>Please fill in all the required fields correctly.</p>}
+      {isSubmissionSuccess && <p style={{ color: 'green' }}>Data submitted successfully!</p>}
       <br />
       <button className="home-btn" onClick={redirectToHome}>
         Home

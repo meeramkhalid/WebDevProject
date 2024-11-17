@@ -1,22 +1,20 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // useNavigate instead of useHistory
-import listings from '../Backend/data/listings.json';  // Ensure the path is correct
+import { useParams, useNavigate } from 'react-router-dom'; 
+import listings from '../Backend/data/listings.json';  
+import '../Pages_Styles/listingDetailPages.css';
 
 const ListingDetailsPage = () => {
   const { id } = useParams();  // Get the listing ID from the URL
-  const navigate = useNavigate(); // Use useNavigate to handle navigation
-  
-  // Find the property details based on the ID from listings.json
+  const navigate = useNavigate(); 
+
   const listing = listings.find(item => item.id === id);
 
   if (!listing) {
     return <div>Property not found</div>;
   }
 
-  // Destructure the property details
   const { image, title, propertyType, guests, bedrooms, bathrooms, price, rating, location } = listing;
 
-  // Function to redirect to the booking page
   const redirectToBooking = () => {
     navigate(`/booking/${id}`); 
   };
@@ -26,8 +24,8 @@ const ListingDetailsPage = () => {
   return (
     <div className="listing-details-page">
       <div className="listing-details">
-        <img src={`/images/${image}`} alt={title} className="listing-image" />
-        <div className="listing-info">
+      <img src={`/images/${image}`} alt={title} className="listing-image" />
+      <div className="listing-info">
           <h2 className="listing-title">{title}</h2>
           <p className="listing-location">{location}</p>
           <p className="listing-type">{propertyType}</p>
@@ -48,7 +46,6 @@ const ListingDetailsPage = () => {
           <li>Heating</li>
           <li>Kitchen</li>
           <li>Parking</li>
-          {/* Add more amenities as needed */}
         </ul>
       </div>
       <button className="book-now-btn" onClick={redirectToBooking}>

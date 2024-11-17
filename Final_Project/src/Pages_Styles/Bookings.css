@@ -1,0 +1,108 @@
+/* General styling for the page */
+.booking-page {
+    font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header styling */
+  .booking-page h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styling */
+  .booking-page form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-page form label {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .booking-page form input[type="date"],
+  .booking-page form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 19px;
+  }
+  
+  .booking-page form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 19px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .booking-page form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Success and error messages */
+  .booking-page p {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .booking-page p[style="color: green;"] {
+    font-weight: bold;
+  }
+  
+  .booking-page .home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 19px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .booking-page .home-btn:hover {
+    background-color: #1e7e34;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .booking-page {
+      padding: 15px;
+    }
+  
+    .booking-page h2 {
+      font-size: 20px;
+    }
+  
+    .booking-page form input[type="date"],
+    .booking-page form input[type="number"] {
+      font-size: 13px;
+    }
+  
+    .booking-page form button,
+    .booking-page .home-btn {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  }
+  
