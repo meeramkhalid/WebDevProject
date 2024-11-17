@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const bookingsFilePath = path.join(__dirname, '../data/bookings.json');
-let bookings = require(bookingsFilePath); // Load existing bookings from JSON file
+let bookings = require(bookingsFilePath); 
 
 // Endpoint: Get all bookings
 router.get('/', (req, res) => {

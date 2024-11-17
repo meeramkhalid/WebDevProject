@@ -18,9 +18,11 @@ const ListingDetailsPage = () => {
 
   // Function to redirect to the booking page
   const redirectToBooking = () => {
-    navigate(`/booking/${id}`); // Use navigate() instead of history.push()
+    navigate(`/booking/${id}`); 
   };
-
+  const redirectToHome = () => {
+    navigate(`/`); 
+  };
   return (
     <div className="listing-details-page">
       <div className="listing-details">
@@ -51,6 +53,10 @@ const ListingDetailsPage = () => {
       </div>
       <button className="book-now-btn" onClick={redirectToBooking}>
         Book Now
+      </button> <br></br>
+      <br></br>
+      <button className="home-btn" onClick={redirectToHome}>
+        Home
       </button>
     </div>
   );

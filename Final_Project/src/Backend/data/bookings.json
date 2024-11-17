@@ -12,5 +12,12 @@
     "checkIn": "2024-11-25",
     "checkOut": "2024-11-30",
     "guests": 3
+  },
+  {
+    "id": "3",
+    "guestName": "meeram khalid",
+    "checkIn": "2024-11-25",
+    "checkOut": "2024-11-30",
+    "guests": 1
   }
 ]
