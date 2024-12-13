@@ -4,3 +4,10 @@
     gap: 25px; /* Add space between cards */
     justify-content: space-between; /* Spread cards evenly across the row */
 }
+.listing-container1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row by default */
+    gap: 20px; /* Adjust the gap between the cards */
+    padding: 20px;
+  }
+  

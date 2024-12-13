@@ -1,25 +1,38 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
 const app = express();
-const listingsRoute = require('./routes/listings');
-const bookingsRoute = require('./routes/bookings');
 
 // Middleware
 app.use(cors({
   origin: 'http://localhost:5173', // Frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow necessary HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+app.use(express.json()); // Parse JSON
 
-// Handle all preflight OPTIONS requests
-app.options('*', cors());
-
-// Middleware for parsing JSON
-app.use(express.json());
+// Connect to MongoDB
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('MongoDB connected successfully');
+  } catch (error) {
+    console.error('MongoDB connection failed:', error.message);
+    process.exit(1);
+  }
+};
+connectDB();
 
 // Routes
-app.use('/api/listings', listingsRoute);
-app.use('/api/bookings', bookingsRoute);
+app.use('/api/listings', require('./routes/listings'));
+app.use('/api/bookings', require('./routes/bookings'));
+app.use('/api/users', require('./routes/users')); // Users route
+app.use('/api/auth', require('./routes/auth')); // Authentication routes
 
 // Start Server
 const PORT = process.env.PORT || 5000;

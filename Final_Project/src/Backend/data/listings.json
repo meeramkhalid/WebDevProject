@@ -53,5 +53,19 @@
       "location": "Miami",
       "amenities": ["Wi-Fi", "Pool", "Gym", "TV"],
       "description": "An urban oasis perfect for a relaxing getaway with access to modern amenities."
+    },
+    {
+      "id": "4",
+      "image": "hotel3.jpg",
+      "title": "Urban Oasis",
+      "propertyType": "Entire apartment",
+      "guests": 2,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "price": 150,
+      "rating": 4.8,
+      "location": "Miami",
+      "amenities": ["Wi-Fi", "Pool", "Gym", "TV"],
+      "description": "An urban oasis perfect for a relaxing getaway with access to modern amenities."
     }
 ]

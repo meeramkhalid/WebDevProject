@@ -1,63 +1,85 @@
-/* .listing-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 27px; 
-    justify-content: space-between; 
-} */
+/* Grid container for listing cards */
+.listing-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Maximum of 4 cards per row */
+  gap: 20px; /* Space between cards */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Individual listing card */
 .listing-card {
-    flex: 1 1 calc(23% - 20px); /* Make each card take up 25% of the row minus the gap */
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e1e1e1;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    height: 60%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  background-color: #fff; /* Optional: Add a background to distinguish cards */
+  height: 100%; /* Ensure consistent height */
+}
+
+.listing-card:hover {
+  transform: scale(1.017);
+}
+
+.listing-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.listing-details {
+  padding: 1rem;
+}
+
+.listing-title {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.listing-type {
+  color: #777;
+  margin: 0.5rem 0;
+}
+
+.listing-info {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.5rem 0;
+}
+
+.listing-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.listing-price {
+  font-weight: bold;
+}
+
+.listing-rating {
+  color: #f39c12;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .listing-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row for medium screens */
   }
-  
-  .listing-card:hover {
-    transform: scale(1.017); 
+}
+
+@media (max-width: 768px) {
+  .listing-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row for smaller screens */
   }
-  
-  .listing-image {
-    width: 100%;
-    height: 200px; 
-    object-fit: cover;
+}
+
+@media (max-width: 480px) {
+  .listing-container {
+    grid-template-columns: 1fr; /* 1 card per row for very small screens */
   }
-  
-  .listing-details {
-    padding: 1rem;
-  }
-  
-  .listing-title {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-  }
-  
-  .listing-type {
-    color: #777;
-    margin: 0.5rem 0;
-  }
-  
-  .listing-info {
-    font-size: 0.9rem;
-    color: #555;
-    margin: 0.5rem 0;
-  }
-  
-  .listing-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
-  }
-  
-  .listing-price {
-    font-weight: bold;
-  }
-  
-  .listing-rating {
-    color: #f39c12; 
-  }
-  
+}

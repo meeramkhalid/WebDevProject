@@ -23,8 +23,8 @@ const ListingDetailsPage = () => {
   };
   return (
     <div className="listing-details-page">
-      <div className="listing-details">
-      <img src={`/images/${image}`} alt={title} className="listing-image" />
+      <div className="listing-detailsforpage">
+      <img src={`/images/${image}`} alt={title} className="listing-imageforpage" />
       <div className="listing-info">
           <h2 className="listing-title">{title}</h2>
           <p className="listing-location">{location}</p>
@@ -34,7 +34,7 @@ const ListingDetailsPage = () => {
           </p>
           <div className="listing-footer">
             <span className="listing-price">${price} per night</span>
-            <span className="listing-rating">{rating} ⭐</span>
+            <span className="listing-ratingforpage">{rating} ⭐</span>
           </div>
         </div>
       </div>

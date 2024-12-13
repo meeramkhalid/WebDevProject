@@ -1,37 +1,43 @@
 const express = require('express');
+const Listing = require('../models/listings');
 const router = express.Router();
-const listings = require('../data/listings.json');
 
-// Endpoint: Get all listings
-router.get('/', (req, res) => {
-  res.json(listings);
+// GET all listings
+router.get('/', async (req, res) => {
+  try {
+    const listings = await Listing.find();
+    res.status(200).json(listings);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching listings', error });
+  }
 });
 
-// Endpoint: Search listings by location
-router.get('/search', (req, res) => {
-  const { query } = req.query;
+// GET a specific listing by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const listingId = req.params.id; // Get the ID from the URL parameter
+    const listing = await Listing.findById(listingId); // Query the database for the listing
 
-  if (!query) {
-    return res.status(400).json({ message: 'Location query is required' });
+    if (!listing) {
+      return res.status(404).json({ message: 'Listing not found' }); // Return 404 if listing doesn't exist
+    }
+
+    res.status(200).json(listing); // Return the listing data
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching listing', error });
   }
-
-  const filteredListings = listings.filter(item => 
-    item.location.toLowerCase().includes(query.toLowerCase())
-  );
-
-  res.json(filteredListings);
 });
 
-// Endpoint: Get listing details by ID
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  const listing = listings.find(item => item.id === id);
-
-  if (!listing) {
-    return res.status(404).json({ message: 'Listing not found' });
+// POST a new listing
+router.post('/', async (req, res) => {
+  try {
+    // The body should have all the required fields
+    const newListing = new Listing(req.body);
+    const savedListing = await newListing.save();
+    res.status(201).json(savedListing);
+  } catch (error) {
+    res.status(500).json({ message: 'Error saving listing', error });
   }
-
-  res.json(listing);
 });
 
 module.exports = router;

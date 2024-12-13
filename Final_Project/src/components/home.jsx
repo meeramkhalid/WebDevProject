@@ -36,7 +36,7 @@ const Home = () => {
     <>
       <Navbar />
       <Categories />
-      <div className="listing-container">
+      <div className="listing-container1">
         {listings.map((listing, index) => (
           <ListingCard key={index} {...listing} />
         ))}
