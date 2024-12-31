@@ -1,168 +1,180 @@
-General page styling
 .listing-details-page {
-    font-family: 'Arial', sans-serif;
-    margin: 0 auto;
-    padding: 20px;
-    max-width: 800px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-    /* Flexbox properties for centering */
-    display: flex;
+  font-family: 'Arial', sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 900px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.listing-detailsforpage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.listing-imageforpage {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.listing-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 20px;
+}
+
+.listing-title {
+  font-size: 28px;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.listing-location {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.listing-type {
+  font-size: 18px;
+  color: #34495e;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.listing-info-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.listing-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.listing-price {
+  color: #27ae60;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.listing-ratingforpage {
+  color: #f1c40f;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.listing-amenities {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.listing-amenities h3 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.listing-amenities ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.listing-amenities ul li {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 25px;
+}
+
+.listing-amenities ul li::before {
+  content: '✔';
+  color: #27ae60;
+  position: absolute;
+  left: 0;
+  font-size: 18px;
+}
+
+.book-now-btn,
+.home-btn {
+  display: inline-block;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.book-now-btn:hover,
+.home-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.home-btn {
+  background-color: #2ecc71;
+}
+
+.home-btn:hover {
+  background-color: #27ae60;
+}
+
+@media (max-width: 768px) {
+  .listing-detailsforpage {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-  
-    /* Make sure the page takes up full height */
-    height: 100vh;
-  }
-  
-  /* Listing details section */
-  .listing-detailsforpage {
-    display: flex;
-    flex-wrap: wrap;
     gap: 20px;
-    margin-bottom: 20px;
   }
-  
+
   .listing-imageforpage {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  } 
-  
+    max-width: 100%;
+  }
+
   .listing-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .listing-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .listing-location {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-  }
-  
-  .listing-type {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 10px;
-  }
-  
-  .listing-info-text {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
-  }
-  
-  .listing-footer {
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  .listing-price {
-    color: #28a745;
-    font-weight: bold;
-  }
-  
-  .listing-ratingforpage {
-    padding-right: 87%;
-    color: #ffcc00;
-    font-weight: bold;
-  }
-  
-  /* Amenities section */
-  .listing-amenities {
-    margin-top: 20px;
-  }
-  
-  .listing-amenities h3 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .listing-amenities ul {
-    list-style-type: none;
     padding: 0;
+    text-align: center;
   }
-  
-  .listing-amenities ul li {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
-    position: relative;
-    padding-left: 20px;
+
+  .listing-footer {
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  .listing-amenities ul li::before {
-    content: '✔';
-    color: #28a745;
-    position: absolute;
-    left: 0;
-    font-size: 14px;
-  }
-  
-  /* Buttons */
+
   .book-now-btn,
   .home-btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin-top: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    text-decoration: none;
+    width: 100%;
   }
-  
-  .book-now-btn:hover,
-  .home-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .home-btn {
-    background-color: #28a745;
-  }
-  
-  .home-btn:hover {
-    background-color: #1e7e34;
-  }
-  
-  /* Responsive design */
-  /* @media (max-width: 768px) {
-    .listing-details {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .listing-image {
-      max-width: 100%;
-    }
-  
-    .listing-info {
-      width: 100%;
-    }
-  
-    .book-now-btn,
-    .home-btn {
-      width: 100%;
-      text-align: center;
-    }
-  } */
+}

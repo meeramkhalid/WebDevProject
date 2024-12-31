@@ -1,19 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router and Routes from 'react-router-dom'
-import Home from './components/home';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; 
+import Home from './components/Home';
 import ListingDetailsPage from './pages/ListingDetailsPage';  
-import BookingPage from './pages/BookingPage';  
+import BookingPage from './pages/BookingPage'; 
+import Login from './pages/Login'; 
+import Signup from './pages/signup'; 
+import Dashboard from './pages/dashboard';
+import Navbar from './components/navbar'; 
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [role, setRole] = useState(null);
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem('role');
+    setRole(storedRole);
+  }, []);
+
+  const updateRole = (newRole) => {
+    setRole(newRole); // Update the role state
+    localStorage.setItem('role', newRole); // Save to localStorage for persistence
+  };
 
   return (
-    <Router>      
-      {/* Define routes for each page */}
+    <Router>
+            <Navbar role={role} setRole={setRole} />  
       <Routes>
-        <Route path="/" element={<Home />} /> {/* Default route (home page) */}
-        <Route path="/listing/:id" element={<ListingDetailsPage />} /> {/* Listing details page */}
-        <Route path="/booking/:id" element={<BookingPage />} /> {/* Booking page */}
+        
+        <Route path="/" element={role === 'admin' ? <Dashboard /> : <Home />} />
+        <Route path="/listing/:id" element={<ListingDetailsPage />} />
+        <Route path="/booking/:id" element={<BookingPage />} />
+        <Route path="/login" element={role ? <Navigate to="/" /> : <Login updateRole={updateRole} />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={role === 'admin' ? <Dashboard /> : <Navigate to="/" />} />
       </Routes>
     </Router>
   );

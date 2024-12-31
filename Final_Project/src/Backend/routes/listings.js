@@ -40,4 +40,18 @@ router.post('/', async (req, res) => {
   }
 });
 
+// router.delete('/listings/:id', protect, checkAdmin, async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const deletedListing = await Listing.findByIdAndDelete(id);
+//     if (!deletedListing) {
+//       return res.status(404).json({ error: 'Listing not found' });
+//     }
+//     res.status(200).json({ message: 'Listing deleted successfully' });
+//   } catch (error) {
+//     res.status(500).json({ error: 'Error deleting listing', details: error });
+//   }
+// });
+
+
 module.exports = router;

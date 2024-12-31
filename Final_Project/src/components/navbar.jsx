@@ -1,8 +1,17 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../components_styles/navbar.css';
-import SearchBar from '../components/SearchBar'; // Make sure the path is correct
+import SearchBar from '../components/SearchBar'; 
 
-const Navbar = () => {
+const Navbar = ({ role, setRole }) => {
+  const navigate = useNavigate(); // Correct initialization
+
+  const handleLogout = () => {
+    localStorage.removeItem('role'); // Clear role from localStorage
+    setRole(null); // Clear role in state
+    navigate('/login'); // Redirect to the login page
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -20,12 +29,25 @@ const Navbar = () => {
       <div className="navbar-search">
         <SearchBar />
       </div>
+     
 
       <div className="navbar-user-menu">
-        <button>Login</button>
-        <button>Sign Up</button>
-      </div>
+         
+      {role && (
+       // <div className="navbar-user-menu">
+          <button onClick={handleLogout}>Logout</button>
+        //</div>
+      )}
+        {/* Link to Login page */}
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
 
+        {/* Link to Sign Up page */}
+        <Link to="/signup">
+          <button>Sign Up</button>
+        </Link>
+      </div>
     </nav>
   );
 };

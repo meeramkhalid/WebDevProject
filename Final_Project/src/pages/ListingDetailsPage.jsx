@@ -1,30 +1,57 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; 
-import listings from '../Backend/data/listings.json';  
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import '../Pages_Styles/listingDetailPages.css';
 
 const ListingDetailsPage = () => {
-  const { id } = useParams();  // Get the listing ID from the URL
+  const { id } = useParams();  // Get the listing _id from the URL
   const navigate = useNavigate(); 
+  const [listing, setListing] = useState(null);  // State to store listing data
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  const listing = listings.find(item => item.id === id);
+  // Fetch the listing data based on the ID from the API
+  useEffect(() => {
+    const fetchListing = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/listings/${id}`);
+        if (!response.ok) {
+          throw new Error('Listing not found');
+        }
+        const data = await response.json();
+        setListing(data);  // Set the listing data from API
+      } catch (error) {
+        console.error(error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (!listing) {
+    fetchListing();
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error || !listing) {
     return <div>Property not found</div>;
   }
 
   const { image, title, propertyType, guests, bedrooms, bathrooms, price, rating, location } = listing;
 
   const redirectToBooking = () => {
-    navigate(`/booking/${id}`); 
+    navigate(`/booking/${id}`, { state: { listing } });
   };
+
   const redirectToHome = () => {
     navigate(`/`); 
   };
+
   return (
     <div className="listing-details-page">
       <div className="listing-detailsforpage">
-      <img src={`/images/${image}`} alt={title} className="listing-imageforpage" />
+      <img src={`/${image}`} alt={title} className="listing-imageforpage" />
       <div className="listing-info">
           <h2 className="listing-title">{title}</h2>
           <p className="listing-location">{location}</p>
@@ -50,8 +77,9 @@ const ListingDetailsPage = () => {
       </div>
       <button className="book-now-btn" onClick={redirectToBooking}>
         Book Now
-      </button> <br></br>
-      <br></br>
+      </button>
+      <br />
+      <br />
       <button className="home-btn" onClick={redirectToHome}>
         Home
       </button>

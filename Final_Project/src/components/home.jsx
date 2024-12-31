@@ -34,7 +34,7 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Categories />
       <div className="listing-container1">
         {listings.map((listing, index) => (

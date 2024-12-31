@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const BookingSchema = new mongoose.Schema({
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'User',
         required: true,
       },
       listingId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'Listing',
         required: true,
       },
@@ -19,15 +19,20 @@ const BookingSchema = new mongoose.Schema({
         type: Date,
         required: true,
       },
-      totalPrice: {
-        type: Number,
-        required: true,
-      },
-      status: {
-        type: String,
-        enum: ['confirmed', 'pending', 'cancelled'],
-        default: 'pending',
-      },
+      guests:{
+        type:Number,
+        required:true,
+
+      }
+      // totalPrice: {
+      //   type: Number,
+      //   required: true,
+      // },
+      // status: {
+      //   type: String,
+      //   enum: ['confirmed', 'pending', 'cancelled'],
+      //   default: 'pending',
+      // },
     }, { timestamps: true });
 
 module.exports = mongoose.model('Booking', BookingSchema);

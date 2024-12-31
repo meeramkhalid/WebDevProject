@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
+//module.exports = router; 
 
 const app = express();
 
@@ -33,6 +34,9 @@ app.use('/api/listings', require('./routes/listings'));
 app.use('/api/bookings', require('./routes/bookings'));
 app.use('/api/users', require('./routes/users')); // Users route
 app.use('/api/auth', require('./routes/auth')); // Authentication routes
+
+// Admin Routes (added)
+app.use('/api/listings', require('./routes/admin')); // Admin routes for listings, bookings, etc.
 
 // Start Server
 const PORT = process.env.PORT || 5000;
